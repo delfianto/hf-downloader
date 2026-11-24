@@ -1,17 +1,17 @@
-pkgname=huggingface-downloader-bin
+pkgname=hf-downloader
 pkgver=0.3.1
-pkgrel=1
+pkgrel=2
 pkgdesc='Flat-file downloader for Hugging Face model artifacts'
 arch=('x86_64')
 url='https://github.com/delfianto/hf-downloader'
 license=('MIT')
 depends=('glibc' 'libgcc' 'ca-certificates')
-provides=("huggingface-downloader=$pkgver" "huggingface-dl=$pkgver" "huggingface-dl-bin=$pkgver")
-conflicts=('huggingface-downloader' 'huggingface-dl' 'huggingface-dl-bin')
-replaces=('huggingface-dl-bin')
+provides=("huggingface-downloader-bin=$pkgver-$pkgrel" "huggingface-downloader=$pkgver-$pkgrel" "huggingface-dl=$pkgver-$pkgrel" "huggingface-dl-bin=$pkgver-$pkgrel")
+conflicts=('huggingface-downloader-bin' 'huggingface-downloader' 'huggingface-dl' 'huggingface-dl-bin')
+replaces=('huggingface-downloader-bin' 'huggingface-dl-bin')
 options=('!strip' '!debug')
 _archive="huggingface-downloader-v$pkgver-linux-x86_64"
-source=("$url/releases/download/v$pkgver/$_archive.tar.gz")
+source=("$url/releases/download/arch-v$pkgver-$pkgrel/$_archive.tar.gz")
 sha256sums=('1e1d3d5c7872ce2d4f17940b49955251c0eb3da4e11f488fa17f04db7665027f')
 
 package() {
