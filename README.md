@@ -6,6 +6,24 @@ symlinks, manifests, or persistent metadata.
 
 ## Install
 
+### Arch Linux (x86_64)
+
+The package installs `hfd`. Executables are installed under `/usr/local/bin`.
+
+Download the `.pkg.tar.zst` from [GitHub Releases](https://github.com/delfianto/huggingface-dl/releases/latest)
+and install it with `sudo pacman -U ./<package-file>`, or build the package
+from the checksum-verified release archive with `makepkg -si`:
+
+```sh
+git clone --branch v0.2.0 https://github.com/delfianto/huggingface-dl.git
+cd huggingface-dl/arch
+makepkg -si
+```
+
+### Build from source
+
+Source builds require Rust 1.100.0 or later.
+
 ```sh
 cargo install --path .
 # or: just install

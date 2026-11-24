@@ -1,0 +1,20 @@
+pkgname=huggingface-dl-bin
+pkgver=0.2.0
+pkgrel=1
+pkgdesc='Flat-file downloader for Hugging Face model artifacts'
+arch=('x86_64')
+url='https://github.com/delfianto/huggingface-dl'
+license=('MIT')
+depends=('glibc' 'libgcc' 'ca-certificates')
+provides=("huggingface-dl=$pkgver")
+conflicts=('huggingface-dl')
+options=('!strip' '!debug')
+_archive="huggingface-dl-v$pkgver-linux-x86_64"
+source=("$url/releases/download/v$pkgver/$_archive.tar.gz")
+sha256sums=('e3bcf311fb40c7eb490ebc95c1dc61a7fa87052d0b7fba5ac645f17bce48e84c')
+
+package() {
+    cd "$srcdir/$_archive"
+    install -Dm0755 hfd "$pkgdir/usr/local/bin/hfd"
+    install -Dm0644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

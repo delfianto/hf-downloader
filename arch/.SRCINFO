@@ -1,0 +1,18 @@
+pkgbase = huggingface-dl-bin
+	pkgdesc = Flat-file downloader for Hugging Face model artifacts
+	pkgver = 0.2.0
+	pkgrel = 1
+	url = https://github.com/delfianto/huggingface-dl
+	arch = x86_64
+	license = MIT
+	depends = glibc
+	depends = libgcc
+	depends = ca-certificates
+	provides = huggingface-dl=0.2.0
+	conflicts = huggingface-dl
+	options = !strip
+	options = !debug
+	source = https://github.com/delfianto/huggingface-dl/releases/download/v0.2.0/huggingface-dl-v0.2.0-linux-x86_64.tar.gz
+	sha256sums = e3bcf311fb40c7eb490ebc95c1dc61a7fa87052d0b7fba5ac645f17bce48e84c
+
+pkgname = huggingface-dl-bin

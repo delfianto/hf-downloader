@@ -1,8 +1,8 @@
 [package]
 name = "hfd"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
-rust-version = "1.98.0"
+rust-version = "1.100.0"
 description = "A small flat-file downloader for Hugging Face model artifacts"
 
 [features]
