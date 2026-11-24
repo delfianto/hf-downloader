@@ -1,4 +1,4 @@
-# huggingface-downloader
+# hf-downloader
 
 `hfdl` is a focused Rust downloader for Hugging Face model artifacts. It writes
 files directly to a directory; it does not create a Hugging Face cache, blobs,
@@ -10,13 +10,13 @@ symlinks, manifests, or persistent metadata.
 
 The `huggingface-downloader-bin` package installs `/usr/local/bin/hfdl`. When upgrading, accept pacman’s prompt to remove `huggingface-dl-bin`.
 
-Download the `.pkg.tar.zst` from [GitHub Releases](https://github.com/delfianto/huggingface-downloader/releases/latest)
+Download the `.pkg.tar.zst` from [GitHub Releases](https://github.com/delfianto/hf-downloader/releases/latest)
 and install it with `sudo pacman -U ./<package-file>`, or build the package
 from the checksum-verified release archive with `makepkg -si`:
 
 ```sh
-git clone --branch v0.3.0 https://github.com/delfianto/huggingface-downloader.git
-cd huggingface-downloader/arch
+git clone --branch v0.3.0 https://github.com/delfianto/hf-downloader.git
+cd hf-downloader/arch
 makepkg -si
 ```
 

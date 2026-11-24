@@ -4,7 +4,7 @@ version = "0.3.0"
 edition = "2024"
 rust-version = "1.100.0"
 license = "MIT"
-repository = "https://github.com/delfianto/huggingface-downloader"
+repository = "https://github.com/delfianto/hf-downloader"
 description = "A small flat-file downloader for Hugging Face model artifacts"
 
 [features]

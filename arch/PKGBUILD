@@ -3,7 +3,7 @@ pkgver=0.3.0
 pkgrel=1
 pkgdesc='Flat-file downloader for Hugging Face model artifacts'
 arch=('x86_64')
-url='https://github.com/delfianto/huggingface-downloader'
+url='https://github.com/delfianto/hf-downloader'
 license=('MIT')
 depends=('glibc' 'libgcc' 'ca-certificates')
 provides=("huggingface-downloader=$pkgver" "huggingface-dl=$pkgver" "huggingface-dl-bin=$pkgver")

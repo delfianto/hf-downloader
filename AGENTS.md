@@ -1,4 +1,4 @@
-# huggingface-downloader contributor guide
+# hf-downloader contributor guide
 
 ## Scope
 
