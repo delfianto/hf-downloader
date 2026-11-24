@@ -1,5 +1,5 @@
 pkgname=huggingface-downloader-bin
-pkgver=0.3.0
+pkgver=0.3.1
 pkgrel=1
 pkgdesc='Flat-file downloader for Hugging Face model artifacts'
 arch=('x86_64')
@@ -12,10 +12,10 @@ replaces=('huggingface-dl-bin')
 options=('!strip' '!debug')
 _archive="huggingface-downloader-v$pkgver-linux-x86_64"
 source=("$url/releases/download/v$pkgver/$_archive.tar.gz")
-sha256sums=('212dd9e866035022b3592b6e3c964442c4cb9b583fba5c818f554628745c0924')
+sha256sums=('1e1d3d5c7872ce2d4f17940b49955251c0eb3da4e11f488fa17f04db7665027f')
 
 package() {
     cd "$srcdir/$_archive"
-    install -Dm0755 hfdl "$pkgdir/usr/local/bin/hfdl"
+    install -Dm0755 hfdl "$pkgdir/usr/bin/hfdl"
     install -Dm0644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
