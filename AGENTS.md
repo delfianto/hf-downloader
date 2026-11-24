@@ -1,13 +1,13 @@
-# hfd contributor guide
+# huggingface-downloader contributor guide
 
 ## Scope
 
-`hfd` is a small, flat-file Hugging Face model downloader. Keep it focused:
+`hfdl` is a small, flat-file Hugging Face model downloader. Keep it focused:
 do not add cache/blob storage, symlinks, manifests, a server, a TUI, or proxy
 management unless the requested task explicitly expands that scope.
 
 The untracked `HuggingFaceModelDownloader/` directory is a Go reference only;
-do not edit it as part of work on `hfd`.
+do not edit it as part of work on `hfdl`.
 
 ## Layout
 

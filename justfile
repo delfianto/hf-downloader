@@ -1,12 +1,12 @@
-bins := "hfd"
-primary := "hfd"
+bins := "hfdl"
+primary := "hfdl"
 bin_dir := env("HOME") / ".local/bin"
 sys_dir := "/usr/local/bin"
 links := ""
 
 # Normal tests do not contact Hugging Face. Use --integration for live metadata
 # discovery tests, which still use --dry-run and never download model bytes.
-test_unit := "cargo test --bin hfd"
+test_unit := "cargo test --bin hfdl"
 test_integration := "HFD_LIVE_TESTS=1 cargo test --test live_hub"
 
 default:

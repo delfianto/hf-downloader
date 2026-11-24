@@ -17,7 +17,7 @@ use tui::prompt_selection;
 #[tokio::main]
 async fn main() {
     if let Err(error) = run(Cli::parse()).await {
-        eprintln!("hfd: {error}");
+        eprintln!("hfdl: {error}");
         std::process::exit(1);
     }
 }

@@ -1,15 +1,20 @@
 [package]
-name = "hfd"
-version = "0.2.0"
+name = "huggingface-downloader"
+version = "0.3.0"
 edition = "2024"
 rust-version = "1.100.0"
 license = "MIT"
+repository = "https://github.com/delfianto/huggingface-downloader"
 description = "A small flat-file downloader for Hugging Face model artifacts"
 
 [features]
 default = ["rustls-tls"]
 rustls-tls = ["reqwest/rustls"]
 native-tls = ["reqwest/native-tls"]
+
+[[bin]]
+name = "hfdl"
+path = "src/main.rs"
 
 [dependencies]
 clap = { version = "4.6", features = ["derive", "env"] }

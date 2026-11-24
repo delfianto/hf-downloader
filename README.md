@@ -1,6 +1,6 @@
-# hfd
+# huggingface-downloader
 
-`hfd` is a focused Rust downloader for Hugging Face model artifacts. It writes
+`hfdl` is a focused Rust downloader for Hugging Face model artifacts. It writes
 files directly to a directory; it does not create a Hugging Face cache, blobs,
 symlinks, manifests, or persistent metadata.
 
@@ -8,21 +8,22 @@ symlinks, manifests, or persistent metadata.
 
 ### Arch Linux (x86_64)
 
-The package installs `hfd`. Executables are installed under `/usr/local/bin`.
+The `huggingface-downloader-bin` package installs `/usr/local/bin/hfdl`. When upgrading, accept pacman’s prompt to remove `huggingface-dl-bin`.
 
-Download the `.pkg.tar.zst` from [GitHub Releases](https://github.com/delfianto/huggingface-dl/releases/latest)
+Download the `.pkg.tar.zst` from [GitHub Releases](https://github.com/delfianto/huggingface-downloader/releases/latest)
 and install it with `sudo pacman -U ./<package-file>`, or build the package
 from the checksum-verified release archive with `makepkg -si`:
 
 ```sh
-git clone --branch v0.2.0 https://github.com/delfianto/huggingface-dl.git
-cd huggingface-dl/arch
+git clone --branch v0.3.0 https://github.com/delfianto/huggingface-downloader.git
+cd huggingface-downloader/arch
 makepkg -si
 ```
 
 ### Build from source
 
-Source builds require Rust 1.100.0 or later.
+Source builds require Rust 1.100.0 or later. Starting with v0.3.0, run
+`hfdl` in scripts that used `hfd`.
 
 ```sh
 cargo install --path .
@@ -32,25 +33,25 @@ cargo install --path .
 ## Usage
 
 ```sh
-hfd black-forest-labs/FLUX.1-dev-FP8
+hfdl black-forest-labs/FLUX.1-dev-FP8
 # writes ./flux1-dev-fp8.safetensors
 ```
 
-By default hfd selects `.safetensors`, `.gguf`, `.bin`, `.pt`, `.pth`, `.ckpt`,
+By default hfdl selects `.safetensors`, `.gguf`, `.bin`, `.pt`, `.pth`, `.ckpt`,
 and `.onnx` files, plus shard index companions such as
 `.safetensors.index.json`, and writes their basenames into the output directory.
 
 ```sh
-hfd org/model -o models -r main -j 8
-hfd org/model --all --repo-dir -o models
-hfd org/model -i Q4           # downloads all matching Q4 GGUFs
-hfd org/model -i Q4_K_M       # downloads only that specific quant
-hfd org/model -i 'weights/**' -e '*.json'
-hfd org/model -y              # bypass interactive selection prompt
-hfd org/private-model -t "$HF_TOKEN"
+hfdl org/model -o models -r main -j 8
+hfdl org/model --all --repo-dir -o models
+hfdl org/model -i Q4           # downloads all matching Q4 GGUFs
+hfdl org/model -i Q4_K_M       # downloads only that specific quant
+hfdl org/model -i 'weights/**' -e '*.json'
+hfdl org/model -y              # bypass interactive selection prompt
+hfdl org/private-model -t "$HF_TOKEN"
 ```
 
-When running `hfd org/model` interactively without `--include`, an interactive
+When running `hfdl org/model` interactively without `--include`, an interactive
 TUI selection prompt lets you choose which files to download.
 
 `--all` selects every file. `--include` and `--exclude` match remote relative
@@ -66,7 +67,7 @@ skipped.
 
 ## Configuration
 
-By default hfd reads `$XDG_CONFIG_HOME/hfd.toml`, falling back to
+By default hfdl reads `$XDG_CONFIG_HOME/hfd.toml`, falling back to
 `~/.config/hfd.toml` on Linux and macOS. A missing default file is fine. Pass
 `--config /path/to/hfd.toml` to use another file.
 
@@ -81,7 +82,7 @@ max_parallel_parts_per_job = 1
 huggingface_token = "hf_..."
 ```
 
-Run `hfd --help` for the complete command reference. Development checks:
+Run `hfdl --help` for the complete command reference. Development checks:
 
 ```sh
 just full-gate

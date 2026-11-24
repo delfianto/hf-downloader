@@ -1,7 +1,7 @@
-# Example hfd configuration.
+# Example hfdl configuration.
 #
 # Copy this file to $XDG_CONFIG_HOME/hfd.toml (or ~/.config/hfd.toml), or use:
-# hfd --config /path/to/hfd.toml OWNER/REPO
+# hfdl --config /path/to/hfd.toml OWNER/REPO
 
 # Number of model files to download concurrently. Default: 4.
 # max_download_jobs = 4

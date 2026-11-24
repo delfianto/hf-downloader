@@ -1,18 +1,23 @@
-pkgbase = huggingface-dl-bin
+pkgbase = huggingface-downloader-bin
 	pkgdesc = Flat-file downloader for Hugging Face model artifacts
-	pkgver = 0.2.0
+	pkgver = 0.3.0
 	pkgrel = 1
-	url = https://github.com/delfianto/huggingface-dl
+	url = https://github.com/delfianto/huggingface-downloader
 	arch = x86_64
 	license = MIT
 	depends = glibc
 	depends = libgcc
 	depends = ca-certificates
-	provides = huggingface-dl=0.2.0
+	provides = huggingface-downloader=0.3.0
+	provides = huggingface-dl=0.3.0
+	provides = huggingface-dl-bin=0.3.0
+	conflicts = huggingface-downloader
 	conflicts = huggingface-dl
+	conflicts = huggingface-dl-bin
+	replaces = huggingface-dl-bin
 	options = !strip
 	options = !debug
-	source = https://github.com/delfianto/huggingface-dl/releases/download/v0.2.0/huggingface-dl-v0.2.0-linux-x86_64.tar.gz
-	sha256sums = e3bcf311fb40c7eb490ebc95c1dc61a7fa87052d0b7fba5ac645f17bce48e84c
+	source = https://github.com/delfianto/huggingface-downloader/releases/download/v0.3.0/huggingface-downloader-v0.3.0-linux-x86_64.tar.gz
+	sha256sums = 212dd9e866035022b3592b6e3c964442c4cb9b583fba5c818f554628745c0924
 
-pkgname = huggingface-dl-bin
+pkgname = huggingface-downloader-bin

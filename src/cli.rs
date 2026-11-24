@@ -4,7 +4,7 @@ use std::path::PathBuf;
 
 #[derive(Debug, Clone, Parser)]
 #[command(
-    name = "hfd",
+    name = "hfdl",
     version,
     about = "Download Hugging Face model files directly"
 )]
@@ -100,7 +100,7 @@ mod tests {
     use super::*;
     #[test]
     fn defaults() {
-        let c = Cli::try_parse_from(["hfd", "a/b"]).unwrap();
+        let c = Cli::try_parse_from(["hfdl", "a/b"]).unwrap();
         assert_eq!(c.revision, "main");
         assert_eq!(c.jobs, None);
         assert_eq!(c.output, PathBuf::from("."));

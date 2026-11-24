@@ -6,10 +6,10 @@ fn plan(repo: &str) -> Vec<serde_json::Value> {
         eprintln!("skipping live Hub test; set HFD_LIVE_TESTS=1 to enable it");
         return Vec::new();
     }
-    let output = Command::new(env!("CARGO_BIN_EXE_hfd"))
+    let output = Command::new(env!("CARGO_BIN_EXE_hfdl"))
         .args([repo, "--dry-run", "--json", "--quiet"])
         .output()
-        .expect("run hfd");
+        .expect("run hfdl");
     assert!(
         output.status.success(),
         "{}",
