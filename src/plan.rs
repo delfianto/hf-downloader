@@ -174,7 +174,7 @@ mod tests {
     }
     #[test]
     fn selection_and_exclusion() {
-        let c = cli(&["hfd", "o/r", "-i", "x/**", "-e", "*.bin"]);
+        let c = cli(&["hfdl", "o/r", "-i", "x/**", "-e", "*.bin"]);
         let a = select_files(
             vec![
                 RemoteFile {
@@ -193,7 +193,7 @@ mod tests {
     }
     #[test]
     fn collision() {
-        let c = cli(&["hfd", "o/r"]);
+        let c = cli(&["hfdl", "o/r"]);
         assert!(
             build_plan(
                 &c.repo.validate().unwrap(),
@@ -214,7 +214,7 @@ mod tests {
     }
     #[test]
     fn repo_layout() {
-        let c = cli(&["hfd", "o/r", "--repo-dir", "-o", "out"]);
+        let c = cli(&["hfdl", "o/r", "--repo-dir", "-o", "out"]);
         let p = build_plan(
             &c.repo.validate().unwrap(),
             vec![RemoteFile {
@@ -232,7 +232,7 @@ mod tests {
     }
     #[test]
     fn includes_shard_indexes_by_default() {
-        let c = cli(&["hfd", "o/r"]);
+        let c = cli(&["hfdl", "o/r"]);
         let selected = select_files(
             vec![RemoteFile {
                 path: "model.safetensors.index.json".into(),
@@ -269,7 +269,7 @@ mod tests {
         ];
 
         // --include Q4 should match all Q4 variants
-        let c_q4 = cli(&["hfd", "o/r", "-i", "Q4"]);
+        let c_q4 = cli(&["hfdl", "o/r", "-i", "Q4"]);
         let sel_q4 = select_files(files.clone(), &c_q4).unwrap();
         let paths_q4: Vec<_> = sel_q4.iter().map(|f| f.path.as_str()).collect();
         assert_eq!(
@@ -278,19 +278,19 @@ mod tests {
         );
 
         // --include Q4_K_M should only match that exact quant
-        let c_q4km = cli(&["hfd", "o/r", "-i", "Q4_K_M"]);
+        let c_q4km = cli(&["hfdl", "o/r", "-i", "Q4_K_M"]);
         let sel_q4km = select_files(files.clone(), &c_q4km).unwrap();
         let paths_q4km: Vec<_> = sel_q4km.iter().map(|f| f.path.as_str()).collect();
         assert_eq!(paths_q4km, vec!["model-Q4_K_M.gguf"]);
 
         // Case insensitivity: --include q4_k_m matches Q4_K_M
-        let c_lower = cli(&["hfd", "o/r", "-i", "q4_k_m"]);
+        let c_lower = cli(&["hfdl", "o/r", "-i", "q4_k_m"]);
         let sel_lower = select_files(files.clone(), &c_lower).unwrap();
         let paths_lower: Vec<_> = sel_lower.iter().map(|f| f.path.as_str()).collect();
         assert_eq!(paths_lower, vec!["model-Q4_K_M.gguf"]);
 
         // Regex pattern: Q4_K_[MS] matches Q4_K_M and Q4_K_S
-        let c_regex = cli(&["hfd", "o/r", "-i", "Q4_K_[MS]"]);
+        let c_regex = cli(&["hfdl", "o/r", "-i", "Q4_K_[MS]"]);
         let sel_regex = select_files(files, &c_regex).unwrap();
         let paths_regex: Vec<_> = sel_regex.iter().map(|f| f.path.as_str()).collect();
         assert_eq!(paths_regex, vec!["model-Q4_K_M.gguf", "model-Q4_K_S.gguf"]);
